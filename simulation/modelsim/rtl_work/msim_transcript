@@ -1,0 +1,80 @@
+# Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# Reading C:/Users/lukes/modelsim.tcl
+# do Miniproject_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls {C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/KeyPressed.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:51:40 on May 23,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls" C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/KeyPressed.v 
+# -- Compiling module KeyPressed
+# 
+# Top level modules:
+# 	KeyPressed
+# End time: 01:51:41 on May 23,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls {C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/LT24Display.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:51:41 on May 23,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls" C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/LT24Display.v 
+# -- Compiling module LT24Display
+# -- Compiling module LT24DisplayInterface
+# -- Compiling module ResetSynchroniser
+# -- Compiling module LT24InitialData
+# 
+# Top level modules:
+# 	LT24Display
+# End time: 01:51:41 on May 23,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls {C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/Top.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:51:41 on May 23,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls" C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/Top.v 
+# -- Compiling module Top
+# ** Warning: C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/Top.v(105): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	Top
+# End time: 01:51:41 on May 23,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/output_files {C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/output_files/updatePixel_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:51:41 on May 23,2022
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/output_files" C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/output_files/updatePixel_tb.v 
+# -- Compiling module updatePixel_tb
+# 
+# Top level modules:
+# 	updatePixel_tb
+# End time: 01:51:41 on May 23,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  updatePixel_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" updatePixel_tb 
+# Start time: 01:51:41 on May 23,2022
+# Loading work.updatePixel_tb
+# ** Error: (vsim-3033) C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/output_files/updatePixel_tb.v(14): Instantiation of 'updatePixel' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /updatePixel_tb File: C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/output_files/updatePixel_tb.v
+#         Searched libraries:
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/altera
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/220model
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/sgate
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/altera_mf
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/altera_lnsim
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/cyclonev
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/cyclonev_hssi
+#             C:/intelFPGA_lite/17.1/modelsim_ase/altera/verilog/cyclonev_pcie_hip
+#             C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/simulation/modelsim/rtl_work
+#             C:/Users/lukes/Workspace/ELEC5566M-Mini-Project-el17ls/simulation/modelsim/rtl_work
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./Miniproject_run_msim_rtl_verilog.do PAUSED at line 14
