@@ -1,0 +1,92 @@
+/* Top level etchosketch art module 
+ * -------------------------
+ * ELEC5566M: Assignment 2
+ * By: Luke Stock 
+ * SID: 201148579
+ * Date: 22nd May 2022
+ *
+ * Module Description:
+ * -------------------
+ * Top level module for a etchosketch sytem, 
+ * designed for implementation on a DE1-SoC Development Board.
+ */
+module Etchosketch #(
+
+	// Declare parameters
+	parameter CLOCK_FREQ = 50000000	// clock frequency // Default to 4 Key presses
+
+)(
+
+	// Declare inputs
+	input clock,        // Clock 
+	input reset,        // Reset
+	input [3:0] key,    // Key input 
+	input [3:0] switch, // Switch input
+	
+	output				LT24Wr_n,	// lcd module
+	output				LT24Rd_n,
+	output				LT24CS_n,
+	output				LT24RS,
+	output				LT24Reset_n,
+	output	[15:0]	LT24Data,
+	output				LT24LCDOn
+
+);
+
+// Declare registers 
+reg	[ 7:0]	xo;
+reg	[ 8:0]	yo;
+reg 				resetApp;
+
+wire	[ 7:0]	xorigin;
+wire	[ 8:0]	yorigin;
+wire  [15:0]   colour_pixel;
+wire           draw_pixel;
+
+
+// Instantiate sub-modules
+KeyPressed KeyOutput (
+
+	.clock               ( clock       ),
+	.key                 ( key         ),
+	.key_pressed_posedge ( posedge_key )
+	
+);
+
+updatePixel updatepixel (
+	// Declare parameters
+	.clock         ( clock        ),
+	.reset    	   ( reset        ), 
+	.keys          ( keys         ),
+	.switches      ( switches     ),
+	
+	.xorigin       ( xorigin      ),
+	.yorigin       ( yorigin      ),	
+	.draw_pixel    ( draw_pixel   ),
+	.colour_pixel  ( colour_pixel )
+	
+);
+
+
+drawPixel  #(
+	// Declare parameters
+	.CLOCK_FREQ    ( CLOCK_FREQ   )	// clock frequency
+) drawpixel (
+   
+    .clock         ( clock        ),
+	 .reset         ( reset        ),
+	 .xo            ( xo           ),
+	 .yo            ( yo           ),
+	 .draw_pixel    ( draw_pixel   ),
+	 .colour_pixel  ( colour_pixel ),
+	 .ready_pixel   ( ready_pixel  ), 
+    .LT24Wr_n      ( LT24Wr_n     ),
+    .LT24Rd_n      ( LT24Rd_n     ),
+    .LT24CS_n      ( LT24CS_n     ),
+    .LT24RS        ( LT24RS       ),
+    .LT24Reset_n   ( LT24Reset_n  ),
+    .LT24Data      ( LT24Data     ),
+    .LT24LCDOn     ( LT24LCDOn    )
+);
+
+endmodule 

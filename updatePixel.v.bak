@@ -1,0 +1,77 @@
+/*
+ * Update pixel origin, colour and sends drawpixel command
+ * ------------------------
+ * ELEC5566M: Mini-project
+ * By: Luke Stock 
+ * SID: 201148579
+ * Date: 22nd May 2022
+ * 
+ * Short Description
+ * -----------------
+ * This module is designed to interface with the LT24 Display Module
+ * from Terasic to draw a pixel. It makes use of the LT24Display IP core.
+ *
+ */
+ 
+ module updatePixel (
+	// Declare parameters
+	input				clock,
+	input 			reset, 
+	input				[3:0] keys,
+	input				[4:0] switches,
+	
+	output reg		[7:0] xorigin,
+	output reg		[8:0] yorigin,	
+	output reg 		draw_pixel,
+	output reg		[15:0] colour_pixel
+	
+);
+
+always @ (posedge clock or posedge reset) begin
+	if (reset) begin 
+		
+		xorigin        <= 8'd0;
+		yorigin        <= 9'd0;
+		draw_pixel     <= 1'b0;
+		colour_pixel   <= 16'b0;
+	
+	end else if (keys[0]) begin 
+		
+		xorigin        <= xorigin + 1;
+	
+	end else if (keys[1]) begin 
+	
+		xorigin        <= xorigin - 1;
+		
+	end else if (keys[2]) begin 
+	
+		yorigin        <= yorigin + 1;
+		
+	end else if (keys[3]) begin 
+	
+		yorigin        <= xorigin - 1;
+		
+	end else if (switches[0]) begin 
+	
+		draw_pixel <= 1'b1;
+		
+	end else if (switches[1]) begin 
+		
+		colour_pixel <= 16'b1111100000000000;
+	
+	end else if (switches[2]) begin 
+		
+		colour_pixel <= 16'b0000011111100000;
+	
+	end else if (switches[3]) begin 
+		
+		colour_pixel <= 16'b0000000000011111;
+	
+	end else begin
+		draw_pixel     <= 1'b0;
+		colour_pixel   <= 16'b0;
+	
+	end
+end
+
+endmodule
